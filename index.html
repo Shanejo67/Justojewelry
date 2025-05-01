@@ -7,6 +7,28 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/CustomEase.min.js"></script>
+  <style>
+    /* Add styling to ensure text appears over the image */
+    .big-title {
+      position: relative;
+      z-index: 10; /* Higher z-index to appear above image */
+    }
+    
+    .text-container-final {
+      position: relative;
+      z-index: 10; /* Higher z-index to appear above image */
+    }
+    
+    .image-container {
+      position: relative;
+      z-index: 5; /* Lower z-index to appear behind text */
+    }
+    
+    .header {
+      position: relative;
+      z-index: 15; /* Highest z-index to ensure nav is always on top */
+    }
+  </style>
 </head>
 <body>
   <!-- Header Navigation -->
@@ -67,10 +89,9 @@
     <div class="text-line-final">Carry our story.</div>
   </div>
 
-  <!-- Hero Text -->
+  <!-- Hero Text - Changed from three lines to two lines -->
   <div class="big-title">
     <div class="title-line"><span>JUSTO</span></div>
-    <div class="title-line"><span>FINE</span></div>
     <div class="title-line"><span>JEWELRY</span></div>
   </div>
 
@@ -199,6 +220,12 @@
         duration: 0.5
       }, "expandFinal+=0.5");
       
+      // Make background semi-transparent - Moved this earlier in the timeline
+      timeline.to(".preloader", {
+        backgroundColor: "rgba(0,0,0,0.5)",
+        duration: 0.5
+      }, "expandFinal+=0.7");
+      
       // Show header elements
       timeline.to(".logo-left", {
         opacity: 1,
@@ -237,12 +264,6 @@
         pointerEvents: "auto",
         duration: 0.3
       }, "expandFinal+=1.2");
-      
-      // Make background semi-transparent
-      timeline.to(".preloader", {
-        backgroundColor: "rgba(0,0,0,0.5)",
-        duration: 0.5
-      }, "expandFinal+=0.7");
       
       // Animate title appearance
       timeline.to(".big-title", { 
