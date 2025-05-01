@@ -1,8 +1,4 @@
-@font-face {
-  src: url("https://fonts.cdnfonts.com/css/pp-neue-montreal") format("woff2");
-  font-family: "PP Neue Montreal", sans-serif;
-  font-weight: 400;
-}
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 
 *,
 *:before,
@@ -44,7 +40,7 @@ body::before {
   width: 200%;
   height: 200%;
   background: transparent
-    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+    url("/api/placeholder/300/300") repeat 0 0;
   background-size: 300px 300px;
   animation: noise-animation 0.3s steps(5) infinite;
   opacity: 0.4;
@@ -460,4 +456,245 @@ body::before {
 
 .text-line:hover, .text-line-final:hover {
   color: gold;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: calc(100vw / 1200 * 10);
+  }
+  
+  .big-title {
+    font-size: 12rem;
+  }
+  
+  .text-container, .text-container-final {
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: calc(100vw / 768 * 10);
+  }
+  
+  .header {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .logo-left {
+    font-size: 2rem;
+  }
+  
+  .nav-center {
+    width: 100%;
+    align-items: center;
+  }
+  
+  .nav-center ul {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .nav-center li {
+    font-size: 1.6rem;
+  }
+  
+  .nav-right {
+    font-size: 1.6rem;
+  }
+  
+  .text-container, .text-container-final {
+    right: 15px;
+    max-width: 250px;
+  }
+  
+  .text-line, .text-line-final {
+    font-size: 1.4rem;
+  }
+  
+  .big-title {
+    font-size: 7rem;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .preloader-percentage {
+    font-size: 10rem;
+    bottom: 10%;
+  }
+  
+  .image-container {
+    width: 300px;
+    height: 400px;
+  }
+  
+  .restart-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: calc(100vw / 480 * 10);
+  }
+  
+  .header {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .logo-left {
+    font-size: 1.8rem;
+  }
+  
+  .nav-center ul {
+    gap: 0.8rem;
+  }
+  
+  .nav-center li {
+    font-size: 1.4rem;
+  }
+  
+  .nav-right {
+    font-size: 1.4rem;
+  }
+  
+  .text-container, .text-container-final {
+    max-width: 200px;
+    right: 10px;
+  }
+  
+  .text-line, .text-line-final {
+    font-size: 1.2rem;
+    padding: 0.2em 0;
+  }
+  
+  .big-title {
+    font-size: 4.5rem;
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  .preloader-percentage {
+    font-size: 6rem;
+  }
+  
+  .image-container {
+    width: 250px;
+    height: 320px;
+  }
+  
+  .restart-btn {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .dot {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .center-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Animation and transition enhancements */
+.logo-left, .nav-right, .nav-center li {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo-left:hover, .nav-right:hover {
+  transform: translateY(-2px);
+}
+
+/* Enhanced image container styles */
+.image-container {
+  transition: box-shadow 0.5s ease;
+}
+
+.image-container:hover {
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+/* Additional styles for text emphasis */
+.text-line strong, .text-line-final strong {
+  color: gold;
+  font-weight: 800;
+}
+
+/* Button hover enhancement */
+.restart-btn:hover .dot {
+  background-color: white;
+}
+
+.restart-btn:hover .center-dot {
+  background-color: white;
+}
+
+/* Additional keyframes for smoother animations */
+@keyframes pulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.big-title {
+  animation: pulse 4s infinite ease-in-out;
+}
+
+/* Custom scrollbar styles (for any scrollable content) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gold;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+/* Print styles */
+@media print {
+  body::before {
+    display: none;
+  }
+  
+  .preloader, .restart-btn {
+    display: none !important;
+  }
+  
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  .big-title {
+    color: black;
+    text-shadow: none;
+  }
+  
+  .image-container {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
 }
